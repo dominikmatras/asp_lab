@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/Laboratoruim2.props" />
+</Project>
