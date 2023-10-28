@@ -1,0 +1,31 @@
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/Laboratorium3 - App.csproj.AssemblyReference.cache
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/Laboratorium3 - App.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/Laboratorium3 - App.AssemblyInfoInputs.cache
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/Laboratorium3 - App.AssemblyInfo.cs
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/Laboratorium3 - App.csproj.CoreCompileInputs.cache
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/Laboratorium3 - App.MvcApplicationPartsAssemblyInfo.cache
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/Laboratorium3 - App.RazorAssemblyInfo.cache
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/Laboratorium3 - App.RazorAssemblyInfo.cs
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/bin/Debug/net7.0/appsettings.Development.json
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/bin/Debug/net7.0/appsettings.json
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/bin/Debug/net7.0/Laboratorium3 - App.staticwebassets.runtime.json
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/bin/Debug/net7.0/Laboratorium3 - App
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/bin/Debug/net7.0/Laboratorium3 - App.deps.json
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/bin/Debug/net7.0/Laboratorium3 - App.runtimeconfig.json
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/bin/Debug/net7.0/Laboratorium3 - App.dll
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/bin/Debug/net7.0/Laboratorium3 - App.pdb
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/staticwebassets/msbuild.Laboratorium3 - App.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/staticwebassets/msbuild.build.Laboratorium3 - App.props
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.Laboratorium3 - App.props
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.Laboratorium3 - App.props
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/staticwebassets.pack.json
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/staticwebassets.build.json
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/staticwebassets.development.json
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/scopedcss/bundle/Laboratorium3 - App.styles.css
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/scopedcss/projectbundle/Laboratorium3 - App.bundle.scp.css
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/Laboratorium3 - App.dll
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/refint/Laboratorium3 - App.dll
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/Laboratorium3 - App.pdb
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/Laboratorium3 - App.genruntimeconfig.cache
+/Users/dominikmatras/Projects/Laboratorium ASP/Laboratorium3 - App/obj/Debug/net7.0/ref/Laboratorium3 - App.dll

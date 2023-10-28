@@ -16,7 +16,6 @@
     <None Remove="Views\Birth\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Calculator\" />
     <Folder Include="Views\Birth\" />
   </ItemGroup>
 </Project>
