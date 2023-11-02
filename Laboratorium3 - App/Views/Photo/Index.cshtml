@@ -1,0 +1,30 @@
+@model List<Photo>
+
+@{
+}
+
+<h1>Lista zdjęć</h1>
+<a class="btn btn-primary" asp-controller="Photo" asp-action="Create">Dodaj zdjęcie</a>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Autor zdjęcia</th>
+        <th>Aparat</th>
+        <th>Akcje</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach(Photo photo in @Model)
+    {
+        <tr>
+            <td>@photo.Author</td>
+            <td>@photo.Camera</td>
+            <td>
+                <a asp-action="Edit" asp-route-id=@photo.Id>Edit</a>
+                <a asp-action="Details" asp-route-id=@photo.Id>Details</a>
+                <a asp-action="Delete" asp-route-id=@photo.Id>Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

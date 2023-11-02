@@ -1,0 +1,28 @@
+@model Photo
+
+@{
+}
+
+<h1>Szczegóły zdjęcia: @Model.Author</h1>
+
+<a asp-action="Index" class="btn btn-primary">Wróć do strony głównej</a>
+<br><br><br>
+<div>
+    <h5>Data i godzina:</h5>
+    <p>@Model.Date</p>
+        
+    <h5>Opis zdjęcia:</h5>
+    <p>@Model.Description</p>
+        
+    <h5>Aparat:</h5>
+    <p>@Model.Camera</p>
+        
+    <h5>Imię i nazwisko autora:</h5>
+    <p>@Model.Author</p>
+        
+    <h5>Rozdzielczość zdjęcia:</h5>
+    <p>@Model.Resolution</p>
+        
+    <h5>Format zdjęcia:</h5>
+    <p>@Model.AspectRatio</p>
+</div>

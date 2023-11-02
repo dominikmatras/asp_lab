@@ -5,7 +5,7 @@ public class MemoryContactService : IContactService
     private readonly Dictionary<int, Contact> _contacts = new Dictionary<int, Contact>()
     {
         { 1, new Contact() { Id = 1, Name = "Adam", Email = "adamjestem@onet.pl", Phone = "666555444" } },
-        { 2, new Contact() { Id = 1, Name = "Aneta", Email = "aneta@wp.pl", Phone = "123456789" } }
+        { 2, new Contact() { Id = 2, Name = "Aneta", Email = "aneta@wp.pl", Phone = "123456789" } }
     };
 
     private int _id = 3;

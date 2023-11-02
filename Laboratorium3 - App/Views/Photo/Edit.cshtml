@@ -1,0 +1,39 @@
+@model Photo
+
+@{
+}
+
+<h1>Edytuj zdjęcie</h1>
+
+<h3>Edytuj zdjęcie: </h3>
+<form asp-controller="Photo" asp-action="Edit" method="post">
+    
+    <label>Data i godzina:</label>
+    <input class="form-control" type="date" asp-for="Date" />
+    <span class="text-danger" asp-validation-for="Date"></span><br>
+    
+    <label>Opis zdjęcia:</label>
+    <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+    <span class="text-danger" asp-validation-for="Description"></span><br>
+    
+    <label>Aparat:</label>
+    <input class="form-control" asp-for="Camera" />
+    <span class="text-danger" asp-validation-for="Camera"></span><br>
+    
+    <label>Imię i nazwisko autora:</label>
+    <input class="form-control" asp-for="Author" />
+    <span class="text-danger" asp-validation-for="Author"></span><br>
+    
+    <label>Rozdzielczość zdjęcia:</label>
+    <input class="form-control" asp-for="Resolution" />
+    <span class="text-danger" asp-validation-for="Resolution"></span><br>
+    
+    <label>Format zdjęcia:</label>
+    <input class="form-control" asp-for="AspectRatio" />
+    <span class="text-danger" asp-validation-for="AspectRatio"></span><br>
+    
+    <br>
+    
+    <input type="submit" class="btn btn-primary" value="Zaktualizuj zdjęcie!" />
+    
+</form>
