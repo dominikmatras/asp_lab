@@ -1,35 +1,41 @@
 @model Photo
+
 @{
 }
 
 <h1>Dodaj nowe zdjęcie</h1>
 
-<h3>Dodaj zdjęcie: </h3>
+<h3>Dodaj zdjęcie:</h3>
+<br><br><br>
 <form asp-controller="Photo" asp-action="Create" method="post">
     
-    <label>Data i godzina:</label>
-    <input class="form-control" type="date" asp-for="Date" />
+    <label asp-for="Date"></label>
+    <input class="form-control" type="datetime-local" asp-for="Date" />
     <span class="text-danger" asp-validation-for="Date"></span><br>
     
-    <label>Opis zdjęcia:</label>
+    <label asp-for="Description"></label>
     <textarea asp-for="Description" class="form-control" rows="4"></textarea>
     <span class="text-danger" asp-validation-for="Description"></span><br>
     
-    <label>Aparat:</label>
+    <label asp-for="Camera"></label>
     <input class="form-control" asp-for="Camera" />
     <span class="text-danger" asp-validation-for="Camera"></span><br>
     
-    <label>Imię i nazwisko autora:</label>
+    <label asp-for="Author"></label>
     <input class="form-control" asp-for="Author" />
     <span class="text-danger" asp-validation-for="Author"></span><br>
     
-    <label>Rozdzielczość zdjęcia:</label>
+    <label asp-for="Resolution"></label>
     <input class="form-control" asp-for="Resolution" />
     <span class="text-danger" asp-validation-for="Resolution"></span><br>
     
-    <label>Format zdjęcia:</label>
+    <label asp-for="AspectRatio"></label>
     <input class="form-control" asp-for="AspectRatio" />
     <span class="text-danger" asp-validation-for="AspectRatio"></span><br>
+    
+    <label asp-for="Priority"></label>
+    <select asp-for="Priority" asp-items="@Html.GetEnumSelectList<Priority>()" class="form-control"></select>
+    <span asp-validation-for="Priority" class="text-danger"></span>
     
     <br>
     

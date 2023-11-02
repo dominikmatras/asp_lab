@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<IContactService, MemoryContactService>();
 builder.Services.AddSingleton<IPhotoService, MemoryPhotoService>();
+builder.Services.AddSingleton<IDateTimeProvider, CurrentDateTimeProvider>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

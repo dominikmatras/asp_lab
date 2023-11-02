@@ -8,8 +8,9 @@
 <table class="table">
     <thead>
     <tr>
-        <th>Autor zdjęcia</th>
-        <th>Aparat</th>
+        <th>@Html.DisplayNameFor(model => model[0].Author)</th>
+        <th>@Html.DisplayNameFor(model => model[0].Camera)</th>
+        <th>@Html.DisplayNameFor(model => model[0].Priority)</th>
         <th>Akcje</th>
     </tr>
     </thead>
@@ -19,6 +20,7 @@
         <tr>
             <td>@photo.Author</td>
             <td>@photo.Camera</td>
+            <td>@photo.Priority.GetDisplayName()</td>
             <td>
                 <a asp-action="Edit" asp-route-id=@photo.Id>Edit</a>
                 <a asp-action="Details" asp-route-id=@photo.Id>Details</a>

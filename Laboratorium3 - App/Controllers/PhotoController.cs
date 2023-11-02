@@ -6,10 +6,12 @@ namespace Laboratorium3___App.Controllers;
 public class PhotoController : Controller
 {
     private readonly IPhotoService _photoService;
+    private readonly IDateTimeProvider _timeProvider;
     
-    public PhotoController(IPhotoService photoService)
+    public PhotoController(IPhotoService photoService, IDateTimeProvider timeProvider)
     {
         _photoService = photoService;
+        _timeProvider = timeProvider;
     }
     public IActionResult Index()
     {
