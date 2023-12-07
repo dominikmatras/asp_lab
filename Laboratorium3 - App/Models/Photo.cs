@@ -9,6 +9,7 @@ public class Photo
     public int Id { get; set; }
     
     [HiddenInput]
+    [DataType(DataType.Date)]
     public DateTime Created { set; get; }
     
     [Required(ErrorMessage = "Musisz podać date oraz godzinę!")]
@@ -38,5 +39,5 @@ public class Photo
     
     [Required(ErrorMessage = "Musisz podać priorytet zdjęcia!")]
     [Display(Name = "Priorytet")]
-    public Priority Priority { get; set; }
+    public int Priority { get; set; }
 }

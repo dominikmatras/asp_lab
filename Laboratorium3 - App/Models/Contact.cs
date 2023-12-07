@@ -1,9 +1,11 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Laboratorium3___App.Models;
 
 public class Contact
 {
+    [HiddenInput]
     public int Id { get; set; }
     
     [Required(ErrorMessage = "Musisz podać imię!")]
@@ -11,6 +13,7 @@ public class Contact
     public string Name { get; set; }
     
     [EmailAddress(ErrorMessage = "Podaj poprawny adres email!")]
+    [RegularExpression(".+\\@.+\\.[a-z]{2,3}")]
     public string Email { get; set; }
     
     [Phone]
@@ -18,4 +21,6 @@ public class Contact
     
     [DataType(DataType.Date)]
     public DateTime? Birth { get; set; }
+    
+    
 }
