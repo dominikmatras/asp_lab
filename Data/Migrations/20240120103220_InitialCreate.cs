@@ -21,7 +21,7 @@ namespace Data.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Created = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Date = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Description = table.Column<string>(type: "TEXT", maxLength: 150, nullable: false),
+                    Description = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
                     Camera = table.Column<string>(type: "TEXT", maxLength: 40, nullable: false),
                     Author = table.Column<string>(type: "TEXT", maxLength: 60, nullable: false),
                     Resolution = table.Column<string>(type: "TEXT", maxLength: 15, nullable: false),
@@ -38,8 +38,8 @@ namespace Data.Migrations
                 columns: new[] { "Id", "AspectRatio", "Author", "Camera", "Created", "Date", "Description", "Priority", "Resolution" },
                 values: new object[,]
                 {
-                    { 1, "16:9", "Autor 1", "Aparat 1", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 12, 2, 10, 7, 40, 611, DateTimeKind.Local).AddTicks(1990), "Opis zdjęcia 1", 1, "1920x1080" },
-                    { 2, "16:9", "Autor 2", "Aparat 2", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 12, 2, 10, 7, 40, 611, DateTimeKind.Local).AddTicks(2060), "Opis zdjęcia 2", 2, "1920x1080" }
+                    { 1, "16:9", "Autor 1", "Aparat 1", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 1, 20, 11, 32, 19, 986, DateTimeKind.Local).AddTicks(1660), "Opis zdjęcia 1", 1, "1920x1080" },
+                    { 2, "16:9", "Autor 2", "Aparat 2", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 1, 20, 11, 32, 19, 986, DateTimeKind.Local).AddTicks(1700), "Opis zdjęcia 2", 2, "1920x1080" }
                 });
         }
 

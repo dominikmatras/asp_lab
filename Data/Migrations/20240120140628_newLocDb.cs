@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Data.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdateDBContext : Migration
+    public partial class newLocDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,14 +16,14 @@ namespace Data.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "Date",
-                value: new DateTime(2024, 1, 20, 10, 47, 21, 934, DateTimeKind.Local).AddTicks(5350));
+                value: new DateTime(2024, 1, 20, 15, 6, 28, 235, DateTimeKind.Local).AddTicks(6100));
 
             migrationBuilder.UpdateData(
                 table: "Photos",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "Date",
-                value: new DateTime(2024, 1, 20, 10, 47, 21, 934, DateTimeKind.Local).AddTicks(5400));
+                value: new DateTime(2024, 1, 20, 15, 6, 28, 235, DateTimeKind.Local).AddTicks(6160));
         }
 
         /// <inheritdoc />
@@ -34,14 +34,14 @@ namespace Data.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "Date",
-                value: new DateTime(2023, 12, 2, 10, 9, 11, 677, DateTimeKind.Local).AddTicks(8100));
+                value: new DateTime(2024, 1, 20, 14, 52, 49, 69, DateTimeKind.Local).AddTicks(5680));
 
             migrationBuilder.UpdateData(
                 table: "Photos",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "Date",
-                value: new DateTime(2023, 12, 2, 10, 9, 11, 677, DateTimeKind.Local).AddTicks(8170));
+                value: new DateTime(2024, 1, 20, 14, 52, 49, 69, DateTimeKind.Local).AddTicks(5720));
         }
     }
 }

@@ -6,9 +6,9 @@ namespace Laboratorium3___App.Models;
 
 public class EfPhotoService : IPhotoService
 {
-  private AddDbContext _context;
+  private AppDbContext _context;
   
-  public EfPhotoService(AddDbContext context)
+  public EfPhotoService(AppDbContext context)
   {
     _context = context;
   }

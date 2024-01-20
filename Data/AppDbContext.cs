@@ -1,19 +1,21 @@
-using System.Runtime.InteropServices.JavaScript;
 using Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Data;
 
-public class AddDbContext : DbContext
+public class AppDbContext : DbContext
 {
   public DbSet<PhotoEntity> Photos { get; set; } 
   private string DbPath { get; set; }
 
-  public AddDbContext()
+  public AppDbContext()
   {
-    var basePath = AppDomain.CurrentDomain.BaseDirectory;
-    DbPath = Path.Combine(basePath, "photosDb.db");
+    var folder = Environment.SpecialFolder.LocalApplicationData; 
+    var path = Environment.GetFolderPath(folder); 
+    DbPath = System.IO.Path.Join(path, "photos.db");
+    Console.WriteLine($"Link do bazy: {DbPath}");
   }
+  
   protected override void OnConfiguring(DbContextOptionsBuilder options) => 
     options.UseSqlite($"Data Source={DbPath}");
 

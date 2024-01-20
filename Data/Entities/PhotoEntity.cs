@@ -1,7 +1,8 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data.Entities;
-
+[Table("Photos")]
 public class PhotoEntity
 {
   public int Id { get; set; }
@@ -9,7 +10,7 @@ public class PhotoEntity
   public DateTime Created { set; get; }
   [Required]
   public DateTime Date { get; set; }
-  [MaxLength(150)]
+  [MaxLength(50)]
   public string Description { get; set; }
   [Required]
   [MaxLength(40)]
@@ -26,4 +27,3 @@ public class PhotoEntity
   [Range(1, 4)]
   public int Priority { get; set; }
 }
-

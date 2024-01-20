@@ -3,9 +3,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<Data.AddDbContext>();
 builder.Services.AddTransient<IPhotoService, EfPhotoService>();
-builder.Services.AddSingleton<IPhotoService, MemoryPhotoService>();
+builder.Services.AddDbContext<Data.AppDbContext>();
 builder.Services.AddSingleton<IDateTimeProvider, CurrentDateTimeProvider>();
 var app = builder.Build();
 

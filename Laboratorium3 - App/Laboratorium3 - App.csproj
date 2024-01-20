@@ -8,10 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Data\Data.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
       <_ContentIncludedByDefault Remove="Views\Contact\Create.cshtml" />
       <_ContentIncludedByDefault Remove="Views\Contact\Delete.cshtml" />
       <_ContentIncludedByDefault Remove="Views\Contact\Details.cshtml" />
@@ -19,4 +15,8 @@
       <_ContentIncludedByDefault Remove="Views\Contact\Update.cshtml" />
     </ItemGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\Data\Data.csproj" />
+    </ItemGroup>
+    
 </Project>

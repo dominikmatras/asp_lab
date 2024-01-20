@@ -10,15 +10,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Data.Migrations
 {
-    [DbContext(typeof(AddDbContext))]
-    [Migration("20231202090911_InitialCreate2")]
-    partial class InitialCreate2
+    [DbContext(typeof(AppDbContext))]
+    [Migration("20240120142437_newLocDb2")]
+    partial class newLocDb2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "7.0.14");
+            modelBuilder.HasAnnotation("ProductVersion", "7.0.15");
 
             modelBuilder.Entity("Data.Entities.PhotoEntity", b =>
                 {
@@ -49,7 +49,7 @@ namespace Data.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(150)
+                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Priority")
@@ -72,7 +72,7 @@ namespace Data.Migrations
                             Author = "Autor 1",
                             Camera = "Aparat 1",
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2023, 12, 2, 10, 9, 11, 677, DateTimeKind.Local).AddTicks(8100),
+                            Date = new DateTime(2024, 1, 20, 15, 24, 37, 641, DateTimeKind.Local).AddTicks(1930),
                             Description = "Opis zdjęcia 1",
                             Priority = 1,
                             Resolution = "1920x1080"
@@ -84,7 +84,7 @@ namespace Data.Migrations
                             Author = "Autor 2",
                             Camera = "Aparat 2",
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2023, 12, 2, 10, 9, 11, 677, DateTimeKind.Local).AddTicks(8170),
+                            Date = new DateTime(2024, 1, 20, 15, 24, 37, 641, DateTimeKind.Local).AddTicks(2000),
                             Description = "Opis zdjęcia 2",
                             Priority = 2,
                             Resolution = "1920x1080"
