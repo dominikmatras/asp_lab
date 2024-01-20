@@ -4,11 +4,11 @@ using Laboratorium3___App.Mappers;
 
 namespace Laboratorium3___App.Models;
 
-public class EFPhotoService : IPhotoService
+public class EfPhotoService : IPhotoService
 {
   private AddDbContext _context;
   
-  public EFPhotoService(AddDbContext context)
+  public EfPhotoService(AddDbContext context)
   {
     _context = context;
   }

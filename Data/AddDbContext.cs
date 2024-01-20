@@ -11,11 +11,11 @@ public class AddDbContext : DbContext
 
   public AddDbContext()
   {
-    var folder = Environment.SpecialFolder.LocalApplicationData; 
-    var path = Environment.GetFolderPath(folder); 
-    DbPath = System.IO.Path.Join(path, "photosDb.db"); 
+    var basePath = AppDomain.CurrentDomain.BaseDirectory;
+    DbPath = Path.Combine(basePath, "photosDb.db");
   }
-  protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlite($"Data Source={DbPath}");
+  protected override void OnConfiguring(DbContextOptionsBuilder options) => 
+    options.UseSqlite($"Data Source={DbPath}");
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
