@@ -1,4 +1,9 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=89A06022_002DF1FE_002D41D6_002DBCD8_002D062031A0BCDD_002Ff_003AProgram_002Ecs/@EntryIndexedValue">ExplicitlyExcluded</s:String>
 	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=8B7B6323_002DB22D_002D4AF9_002D87A9_002DA02634D44A23_002Fd_003AControllers_002Ff_003ABirthController_002Ecs/@EntryIndexedValue">ExplicitlyExcluded</s:String>
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;
+  &lt;PhysicalFolder Path="/Users/dominikmatras/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/6.0.23" Loaded="True" /&gt;
+  &lt;PhysicalFolder Path="/Users/dominikmatras/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/7.0.14" Loaded="True" /&gt;
+  &lt;PhysicalFolder Path="/Users/dominikmatras/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/7.0.15" Loaded="True" /&gt;
+&lt;/AssemblyExplorer&gt;</s:String>
 	</wpf:ResourceDictionary>

@@ -34,7 +34,10 @@
     
     <label asp-for="Priority"></label>
     <select asp-for="Priority" asp-items="@Html.GetEnumSelectList<Priority>()" class="form-control"></select>
-    <span asp-validation-for="Priority" class="text-danger"></span>
+    <span asp-validation-for="Priority" class="text-danger"></span><br/>
+    
+    <label asp-for="Organizations" class="fw-bold"></label>
+    <select class="form-control" asp-for="OrganizationId" asp-items="@Model.Organizations"></select>
     
     <br>
     

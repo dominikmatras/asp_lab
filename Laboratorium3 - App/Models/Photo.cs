@@ -1,5 +1,8 @@
 using System.ComponentModel.DataAnnotations;
+using Data.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Laboratorium3___App.Models;
 
@@ -40,4 +43,14 @@ public class Photo
     [Required(ErrorMessage = "Musisz podać priorytet zdjęcia!")]
     [Display(Name = "Priorytet")]
     public int Priority { get; set; }
+    
+    [HiddenInput]
+    public int OrganizationId { get; set; }
+    
+    [Display(Name = "Organizacja")]
+    [ValidateNever]
+    public List<SelectListItem> Organizations { get; set; }
+    
+    [Display(Name = "Organizacja")]
+    public string? OrganizationName { get; set; }
 }

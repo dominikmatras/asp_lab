@@ -26,4 +26,6 @@ public class PhotoEntity
   [Required]
   [Range(1, 4)]
   public int Priority { get; set; }
+  public int OrganizationId { get; set; }
+  public OrganizationEntity? Organization { get; set; }
 }

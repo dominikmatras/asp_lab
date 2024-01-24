@@ -1,5 +1,6 @@
 using Laboratorium3___App.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Laboratorium3___App.Controllers;
 
@@ -21,25 +22,41 @@ public class PhotoController : Controller
     [HttpGet]
     public IActionResult Create()
     {
-        return View();
+        Photo model = new Photo();
+        model.Organizations =  _photoService
+            .FindAllOrganizationsForVieModel()
+            .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Title })
+            .ToList();
+        return View(model);
     }
     
     [HttpPost]
     public IActionResult Create(Photo model)
     {
+        
+        model.Organizations =  _photoService
+            .FindAllOrganizationsForVieModel()
+            .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Title })
+            .ToList();
+        
         if (ModelState.IsValid)
         {
             _photoService.Add(model);
             return RedirectToAction("Index");
         }
-        return View();
+        return View(model);
     }
 
     [HttpGet]
     public IActionResult Edit(int Id)
     {
-        return View(_photoService.FindById(Id));
+        Photo model = _photoService.FindById(Id);
+        model.Organizations = _photoService
+            .FindAllOrganizationsForVieModel()
+            .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Title })
+            .ToList();
         
+        return View(model);
     }
     
     [HttpPost]
@@ -50,7 +67,13 @@ public class PhotoController : Controller
             _photoService.Update(model);
             return RedirectToAction("Index");
         }
-        return View();
+        
+        model.Organizations = _photoService
+            .FindAllOrganizationsForVieModel()
+            .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Title })
+            .ToList();
+        
+        return View(model);
     }
 
     public IActionResult Details(int Id)

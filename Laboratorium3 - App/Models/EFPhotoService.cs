@@ -1,6 +1,7 @@
 using Data;
 using Data.Entities;
 using Laboratorium3___App.Mappers;
+using Microsoft.EntityFrameworkCore;
 
 namespace Laboratorium3___App.Models;
 
@@ -13,16 +14,18 @@ public class EfPhotoService : IPhotoService
     _context = context;
   }
   
-  public int Add(Photo contact)
+  public int Add(Photo photo)
   {
-    var e= _context.Photos.Add(PhotoMapper.ToEntity(contact));
+    var e= _context.Photos.Add(PhotoMapper.ToEntity(photo));
     _context.SaveChanges();
     return e.Entity.Id;
   }
 
   public void Update(Photo photo)
   {
-    _context.Photos.Update(PhotoMapper.ToEntity(photo));
+    var entity = PhotoMapper.ToEntity(photo);
+    _context.Photos.Update(entity);
+    _context.SaveChanges();
   }
 
   public void DeleteById(int Id)
@@ -36,11 +39,22 @@ public class EfPhotoService : IPhotoService
 
   public Photo? FindById(int Id)
   {
-    return PhotoMapper.FromEntity(_context.Photos.Find(Id));
+    var photoEntity = _context.Photos
+      .Include(p => p.Organization)
+      .FirstOrDefault(p => p.Id == Id);
+
+    if (photoEntity == null) return null;
+    
+    return PhotoMapper.FromEntity(photoEntity);
   }
 
   public List<Photo>? FindAll()
   {
     return _context.Photos.Select(e => PhotoMapper.FromEntity(e)).ToList(); ;
+  }
+
+  public List<OrganizationEntity> FindAllOrganizationsForVieModel()
+  {
+    return _context.Organizations.ToList();
   }
 }

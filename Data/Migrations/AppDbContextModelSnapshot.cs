@@ -17,6 +17,45 @@ namespace Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.15");
 
+            modelBuilder.Entity("Data.Entities.OrganizationEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Nip")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Regon")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Organization");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Nip = "83492384",
+                            Regon = "13424234",
+                            Title = "WSEI"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Nip = "2498534",
+                            Regon = "0873439249",
+                            Title = "Firma"
+                        });
+                });
+
             modelBuilder.Entity("Data.Entities.PhotoEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -49,6 +88,9 @@ namespace Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("OrganizationId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("Priority")
                         .HasColumnType("INTEGER");
 
@@ -58,6 +100,8 @@ namespace Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("OrganizationId");
 
                     b.ToTable("Photos");
 
@@ -69,8 +113,9 @@ namespace Data.Migrations
                             Author = "Autor 1",
                             Camera = "Aparat 1",
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2024, 1, 20, 15, 24, 37, 641, DateTimeKind.Local).AddTicks(1930),
+                            Date = new DateTime(2024, 1, 21, 12, 10, 10, 537, DateTimeKind.Local).AddTicks(6140),
                             Description = "Opis zdjęcia 1",
+                            OrganizationId = 1,
                             Priority = 1,
                             Resolution = "1920x1080"
                         },
@@ -81,11 +126,80 @@ namespace Data.Migrations
                             Author = "Autor 2",
                             Camera = "Aparat 2",
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2024, 1, 20, 15, 24, 37, 641, DateTimeKind.Local).AddTicks(2000),
+                            Date = new DateTime(2024, 1, 21, 12, 10, 10, 537, DateTimeKind.Local).AddTicks(6190),
                             Description = "Opis zdjęcia 2",
+                            OrganizationId = 2,
                             Priority = 2,
                             Resolution = "1920x1080"
                         });
+                });
+
+            modelBuilder.Entity("Data.Entities.OrganizationEntity", b =>
+                {
+                    b.OwnsOne("Data.Entities.Address", "Address", b1 =>
+                        {
+                            b1.Property<int>("OrganizationEntityId")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<string>("City")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.Property<string>("PostalCode")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.Property<string>("Region")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.Property<string>("Street")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.HasKey("OrganizationEntityId");
+
+                            b1.ToTable("Organization");
+
+                            b1.WithOwner()
+                                .HasForeignKey("OrganizationEntityId");
+
+                            b1.HasData(
+                                new
+                                {
+                                    OrganizationEntityId = 1,
+                                    City = "Kraków",
+                                    PostalCode = "31-150",
+                                    Region = "małopolskie",
+                                    Street = "Św. Filipa 17"
+                                },
+                                new
+                                {
+                                    OrganizationEntityId = 2,
+                                    City = "Kraków",
+                                    PostalCode = "31-150",
+                                    Region = "małopolskie",
+                                    Street = "Krowoderska 45/6"
+                                });
+                        });
+
+                    b.Navigation("Address");
+                });
+
+            modelBuilder.Entity("Data.Entities.PhotoEntity", b =>
+                {
+                    b.HasOne("Data.Entities.OrganizationEntity", "Organization")
+                        .WithMany("Photos")
+                        .HasForeignKey("OrganizationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Organization");
+                });
+
+            modelBuilder.Entity("Data.Entities.OrganizationEntity", b =>
+                {
+                    b.Navigation("Photos");
                 });
 #pragma warning restore 612, 618
         }

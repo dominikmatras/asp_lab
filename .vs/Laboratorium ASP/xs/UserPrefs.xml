@@ -1,0 +1,38 @@
+﻿<Properties StartupConfiguration="{8B7B6323-B22D-4AF9-87A9-A02634D44A23}|https">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Laboratoruim2 PreferredExecutionTarget="/Applications/Firefox Developer Edition.app" />
+  <MonoDevelop.Ide.ItemProperties.Laboratorium1 PreferredExecutionTarget="/Applications/Brave Browser.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Laboratoruim2/Controllers/BirthController.cs">
+    <Files>
+      <File FileName="Laboratoruim2/Controllers/BirthController.cs" Line="32" Column="2" />
+      <File FileName="Laboratoruim2/Views/Birth/_ViewStart.cshtml" Line="23" Column="7" />
+      <File FileName="Laboratoruim2/Models/Birth.cs" Line="4" Column="23" />
+      <File FileName="Laboratoruim2/Views/Birth/Result.cshtml" Line="6" Column="48" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Laboratorium ASP" expanded="True">
+            <Node name="Laboratoruim2" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="BirthController.cs" selected="True" />
+              </Node>
+              <Node name="Models" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Birth" expanded="True" />
+                <Node name="Calculator" expanded="True" />
+                <Node name="Home" expanded="True" />
+                <Node name="Shared" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>

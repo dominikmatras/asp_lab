@@ -1,3 +1,5 @@
+using Data.Entities;
+
 namespace Laboratorium3___App.Models;
 
 public interface IPhotoService
@@ -7,4 +9,5 @@ public interface IPhotoService
     void DeleteById(int Id);
     Photo? FindById(int Id);
     List<Photo>? FindAll();
+    List<OrganizationEntity> FindAllOrganizationsForVieModel();
 }
