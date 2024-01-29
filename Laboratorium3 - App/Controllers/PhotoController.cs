@@ -29,6 +29,11 @@ public class PhotoController : Controller
             .FindAllOrganizationsForVieModel()
             .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Title })
             .ToList();
+        
+        model.Authors = _photoService
+            .FindAllAuthorsForVieModel()
+            .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Pseudonym })
+            .ToList();
         return View(model);
     }
     
@@ -41,12 +46,40 @@ public class PhotoController : Controller
             .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Title })
             .ToList();
         
+        model.Authors = _photoService
+            .FindAllAuthorsForVieModel()
+            .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Pseudonym })
+            .ToList();
+        
         if (ModelState.IsValid)
         {
             _photoService.Add(model);
             return RedirectToAction("Index");
         }
         return View(model);
+    }
+    [HttpGet]
+    public ActionResult CreateApi()
+    {
+        Photo model = new Photo();
+        model.Authors = _photoService
+            .FindAllAuthorsForVieModel()
+            .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Pseudonym })
+            .ToList();
+            
+        return View(model);
+    }
+    
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult CreateApi(Photo p)
+    {
+        if (ModelState.IsValid)
+        {
+            _photoService.Add(p);
+            return RedirectToAction(nameof(Index));
+        }
+        return View();
     }
 
     [HttpGet]
@@ -56,6 +89,11 @@ public class PhotoController : Controller
         model.Organizations = _photoService
             .FindAllOrganizationsForVieModel()
             .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Title })
+            .ToList();
+
+        model.Authors = _photoService
+            .FindAllAuthorsForVieModel()
+            .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Pseudonym })
             .ToList();
         
         return View(model);
@@ -75,6 +113,11 @@ public class PhotoController : Controller
             .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Title })
             .ToList();
         
+        model.Authors = _photoService
+            .FindAllAuthorsForVieModel()
+            .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Pseudonym })
+            .ToList();
+        
         return View(model);
     }
     [AllowAnonymous]
@@ -89,9 +132,9 @@ public class PhotoController : Controller
     }
     
     [HttpPost]
-    public IActionResult Delete(int Id)
+    public IActionResult Delete(int id)
     {
-        _photoService.DeleteById(Id);
+        _photoService.DeleteById(id);
         return RedirectToAction("Index");
     }
 }

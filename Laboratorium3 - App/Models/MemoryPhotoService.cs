@@ -48,4 +48,9 @@ public class MemoryPhotoService : IPhotoService
     {
         throw new NotImplementedException();
     }
+    
+    public List<AuthorEntity> FindAllAuthorsForVieModel()
+    {
+        throw new NotImplementedException();
+    }
 }

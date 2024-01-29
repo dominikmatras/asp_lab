@@ -5,10 +5,11 @@
 
 <h1>Usuń zdjęcie</h1>
 
-<h3>Czy na pewno chcesz usunąć zdjęcie: @Model.Author?</h3>
+<h3>Czy na pewno chcesz usunąć zdjęcie: @Model.AuthorPseudonym?</h3>
 
 
 <form asp-controller="Photo" asp-action="Delete" method="post">
     <a asp-action="Index" class="btn btn-primary">Wróć do strony głównej</a>
+    <input type="hidden" asp-for="Id" />
     <input type="submit" class="btn btn-danger" value="Usuń zdjęcie!"/>
 </form>

@@ -5,10 +5,11 @@
 
 <h1>Lista zdjęć</h1>
 <a class="btn btn-primary" asp-controller="Photo" asp-action="Create">Dodaj zdjęcie</a>
+<a class="btn btn-primary" asp-controller="Photo" asp-action="CreateApi">Dodaj zdjęcie (z API)</a>
 <table class="table">
     <thead>
     <tr>
-        <th>@Html.DisplayNameFor(model => model[0].Author)</th>
+        <th>@Html.DisplayNameFor(model => model[0].AuthorPseudonym)</th>
         <th>@Html.DisplayNameFor(model => model[0].Camera)</th>
         <th>@Html.DisplayNameFor(model => model[0].Priority)</th>
         <th>Akcje</th>
@@ -18,7 +19,7 @@
     @foreach(Photo photo in @Model)
     {
         <tr>
-            <td>@photo.Author</td>
+            <td>@photo.AuthorPseudonym</td>
             <td>@photo.Camera</td>
             <td>@photo.Priority</td>
             <td>

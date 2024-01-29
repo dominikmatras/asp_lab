@@ -10,4 +10,5 @@ public interface IPhotoService
     Photo? FindById(int Id);
     List<Photo>? FindAll();
     List<OrganizationEntity> FindAllOrganizationsForVieModel();
+    List<AuthorEntity> FindAllAuthorsForVieModel();
 }

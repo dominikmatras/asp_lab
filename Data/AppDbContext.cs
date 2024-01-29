@@ -9,6 +9,8 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
 {
   public DbSet<PhotoEntity> Photos { get; set; } 
   public DbSet<OrganizationEntity> Organizations { get; set; }
+  
+  public DbSet<AuthorEntity> Authors { get; set; }
   private string DbPath { get; set; }
 
   public AppDbContext()
@@ -31,6 +33,11 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
       .HasOne(e => e.Organization)
       .WithMany(o => o.Photos)
       .HasForeignKey(e => e.OrganizationId);
+
+    modelBuilder.Entity<PhotoEntity>()
+      .HasOne(e => e.Author)
+      .WithMany(o => o.Photos)
+      .HasForeignKey(e => e.AuthorId);
     
     modelBuilder.Entity<OrganizationEntity>()
       .HasData(
@@ -53,12 +60,12 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
       .HasData(
       new PhotoEntity()
       {
-        Id = 1, Date = DateTime.Now, Description = "Opis zdjęcia 1", Camera = "Aparat 1", Author = "Autor 1",
+        Id = 1, Date = DateTime.Now, Description = "Opis zdjęcia 1", Camera = "Aparat 1", AuthorId = 1,
         Resolution = "1920x1080", AspectRatio = "16:9", Priority = 1, OrganizationId = 1
       },
       new PhotoEntity()
       {
-        Id = 2, Date = DateTime.Now, Description = "Opis zdjęcia 2", Camera = "Aparat 2", Author = "Autor 2",
+        Id = 2, Date = DateTime.Now, Description = "Opis zdjęcia 2", Camera = "Aparat 2", AuthorId = 2,
         Resolution = "1920x1080", AspectRatio = "16:9", Priority = 2, OrganizationId = 2
       });
 
@@ -68,6 +75,23 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
         new { OrganizationEntityId = 1, City = "Kraków", Street = "Św. Filipa 17", PostalCode = "31-150", Region = "małopolskie" },
         new { OrganizationEntityId = 2, City = "Kraków", Street = "Krowoderska 45/6", PostalCode = "31-150", Region = "małopolskie" }
       );
+    
+    modelBuilder.Entity<AuthorEntity>()
+      .HasData(
+        new AuthorEntity()
+        {
+          Id = 1,
+          FirstName = "Dominik",
+          LastName = "Matras",
+          Pseudonym = "Dominik Matras"
+        },
+        new AuthorEntity()
+        {
+          Id = 2,
+          FirstName = "Jan",
+          LastName = "Kowalski",
+          Pseudonym = "Jan Kowalski"
+        });
     
     base.OnModelCreating(modelBuilder);
     
@@ -99,7 +123,7 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
     var admin = new IdentityUser
     {
       Id = ADMIN_ID,
-      Email = "dominikmatras@microsoft.wsei.edu.pl",
+      Email = "admin@wsei.edu.pl",
       EmailConfirmed = true,
       UserName = "admin",
       NormalizedUserName = "ADMIN",

@@ -30,7 +30,12 @@ public class Photo
     
     [Required(ErrorMessage = "Musisz podać autora zdjęcia!")]
     [Display(Name = "Autor")]
-    public string Author { get; set; }
+    public int AuthorId { get; set; }
+    [Display(Name = "Autor")]
+    [ValidateNever]
+    public List<SelectListItem> Authors { get; set; }
+    [Display(Name = "Autor")]
+    public string? AuthorPseudonym { get; set; }
     
     [Required(ErrorMessage = "Musisz podać rozdzielczość zdjęcia!")]
     [Display(Name = "Rozdzielczość")]

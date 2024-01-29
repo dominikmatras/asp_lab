@@ -15,9 +15,9 @@ public class PhotoEntity
   [Required]
   [MaxLength(40)]
   public string Camera { get; set; }
-  [Required]
-  [MaxLength(60)]
-  public string Author { get; set; }
+  public int AuthorId { get; set; }
+  public AuthorEntity Author { get; set; }
+  
   [Required]
   [MaxLength(15)]
   public string Resolution { get; set; }

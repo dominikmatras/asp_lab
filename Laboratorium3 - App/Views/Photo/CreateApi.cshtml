@@ -21,7 +21,7 @@
     <input class="form-control" asp-for="Camera" />
     <span class="text-danger" asp-validation-for="Camera"></span><br>
     
-    <label asp-for="Authors"></label>
+    <label asp-for="Authors" class="fw-bold"></label>
     <select class="form-control" asp-for="AuthorId" asp-items="@Model.Authors"></select><br/>
     
     <label asp-for="Resolution"></label>
@@ -36,12 +36,45 @@
     <select asp-for="Priority" asp-items="@Html.GetEnumSelectList<Priority>()" class="form-control"></select>
     <span asp-validation-for="Priority" class="text-danger"></span><br/>
     
-    <label asp-for="Organizations"></label>
-    <select class="form-control" asp-for="OrganizationId" asp-items="@Model.Organizations"></select>
-    
-    
+    <div class="form-group">
+        <label for="filter">Filtr organizacji</label>
+        <input class="form-control mb-3" type="text" name="filter" id="filter"/>
+        <label asp-for="OrganizationId"></label>
+        <select class="form-control mb-3" asp-for="OrganizationId"></select>
+    </div>
     <br>
     
     <input type="submit" value="Dodaj nowe zdjęcie!" />
-    
 </form>
+
+@section Scripts
+{
+    <script>
+        let select = document.querySelector('#OrganizationId')
+        let filter = document.querySelector('#filter')
+        
+        filter.onchange = function(e) {
+            if (filter.value.lenght == 0) {
+                return;
+            }
+        
+        fetch(`/api/organizations?filter=${filter.value}`)
+            .then(response => {
+                if (response.ok) {
+                    return response.json()
+                }
+                    throw `it's not ok: ${response.status}`
+                })
+            .then(json => {
+                select.innerHTML = ''
+                for (let item of json) {
+                    let option = document.createElement('option');
+                    option.setAttribute('value', item.id);
+                    option.innerText = item.title;
+                    select.appendChild(option);
+                }
+            })
+            .catch(e => console.log('cant fetch organizations', e))
+        }
+    </script>
+}

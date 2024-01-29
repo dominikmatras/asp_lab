@@ -3,7 +3,7 @@
 @{
 }
 
-<h1>Szczegóły zdjęcia: @Model.Author</h1>
+<h1>Szczegóły zdjęcia: @Model.AuthorPseudonym</h1>
 
 <a asp-action="Index" class="btn btn-primary">Wróć do strony głównej</a>
 <br><br><br>
@@ -17,8 +17,8 @@
     <label asp-for="Camera" class="fw-bold"></label>
     <p>@Model.Camera</p>
         
-    <label asp-for="Author" class="fw-bold"></label>
-    <p>@Model.Author</p>
+    <label asp-for="Authors" class="fw-bold"></label>
+    <p>@Model.AuthorPseudonym</p>
         
     <label asp-for="Resolution" class="fw-bold"></label>
     <p>@Model.Resolution</p>
