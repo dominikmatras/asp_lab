@@ -17,9 +17,9 @@
     <textarea asp-for="Description" class="form-control" rows="4"></textarea>
     <span class="text-danger" asp-validation-for="Description"></span><br>
     
-    <label asp-for="Camera"></label>
-    <input class="form-control" asp-for="Camera" />
-    <span class="text-danger" asp-validation-for="Camera"></span><br>
+    <label asp-for="Cameras"></label>
+    <select class="form-control" asp-for="CameraId" asp-items="@Model.Cameras"></select><br/>
+    <span class="text-danger" asp-validation-for="CameraId"></span><br>
     
     <label asp-for="Authors" class="fw-bold"></label>
     <select class="form-control" asp-for="AuthorId" asp-items="@Model.Authors"></select><br/>

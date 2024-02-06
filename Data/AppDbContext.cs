@@ -10,6 +10,8 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
   public DbSet<PhotoEntity> Photos { get; set; } 
   public DbSet<OrganizationEntity> Organizations { get; set; }
   
+  public DbSet<CameraEntity> Cameras { get; set; }
+  
   public DbSet<AuthorEntity> Authors { get; set; }
   private string DbPath { get; set; }
 
@@ -60,12 +62,12 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
       .HasData(
       new PhotoEntity()
       {
-        Id = 1, Date = DateTime.Now, Description = "Opis zdjęcia 1", Camera = "Aparat 1", AuthorId = 1,
+        Id = 1, Date = DateTime.Now, Description = "Opis zdjęcia 1", CameraId = 1, AuthorId = 1,
         Resolution = "1920x1080", AspectRatio = "16:9", Priority = 1, OrganizationId = 1
       },
       new PhotoEntity()
       {
-        Id = 2, Date = DateTime.Now, Description = "Opis zdjęcia 2", Camera = "Aparat 2", AuthorId = 2,
+        Id = 2, Date = DateTime.Now, Description = "Opis zdjęcia 2", CameraId = 2, AuthorId = 2,
         Resolution = "1920x1080", AspectRatio = "16:9", Priority = 2, OrganizationId = 2
       });
 
@@ -91,6 +93,23 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
           FirstName = "Jan",
           LastName = "Kowalski",
           Pseudonym = "Jan Kowalski"
+        });
+    
+    modelBuilder.Entity<CameraEntity>()
+      .HasData(
+        new CameraEntity()
+        {
+          Id = 1,
+          Model = "Canon 5D Mark IV",
+          Producer = "Canon",
+          SerialNumber = "SN12445"
+        },
+        new CameraEntity()
+        {
+          Id = 2,
+          Model = "Sony A7 III",
+          Producer = "Sony",
+          SerialNumber = "SN12345"
         });
     
     base.OnModelCreating(modelBuilder);

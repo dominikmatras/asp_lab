@@ -12,9 +12,8 @@ public class PhotoEntity
   public DateTime Date { get; set; }
   [MaxLength(50)]
   public string Description { get; set; }
-  [Required]
-  [MaxLength(40)]
-  public string Camera { get; set; }
+  public int CameraId { get; set; }
+  public CameraEntity Camera { get; set; }
   public int AuthorId { get; set; }
   public AuthorEntity Author { get; set; }
   

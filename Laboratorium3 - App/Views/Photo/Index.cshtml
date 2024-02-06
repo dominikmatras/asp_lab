@@ -4,13 +4,15 @@
 }
 
 <h1>Lista zdjęć</h1>
-<a class="btn btn-primary" asp-controller="Photo" asp-action="Create">Dodaj zdjęcie</a>
-<a class="btn btn-primary" asp-controller="Photo" asp-action="CreateApi">Dodaj zdjęcie (z API)</a>
-<table class="table">
+<div class="btn-wrapper">
+<a class="btn btn-primary mt-3" asp-controller="Photo" asp-action="Create">Dodaj zdjęcie</a>
+<a class="btn btn-primary mt-3" asp-controller="Photo" asp-action="CreateApi">Dodaj zdjęcie (z API)</a>
+</div>
+<table class="table mt-4" data-bs-theme="dark">
     <thead>
     <tr>
         <th>@Html.DisplayNameFor(model => model[0].AuthorPseudonym)</th>
-        <th>@Html.DisplayNameFor(model => model[0].Camera)</th>
+        <th>@Html.DisplayNameFor(model => model[0].CameraName)</th>
         <th>@Html.DisplayNameFor(model => model[0].Priority)</th>
         <th>Akcje</th>
     </tr>
@@ -20,7 +22,7 @@
     {
         <tr>
             <td>@photo.AuthorPseudonym</td>
-            <td>@photo.Camera</td>
+            <td>@photo.CameraName</td>
             <td>@photo.Priority</td>
             <td>
                 <a asp-action="Edit" asp-route-id=@photo.Id>Edit</a>

@@ -20,3 +20,22 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+body, .navbar, footer {
+  background-color: #333; /* Ciemne tło */
+  color: #fff; /* Biały tekst */
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #fff; /* Biały tekst dla linków nawigacji */
+}
+
+.table {
+  color: #fff; /* Biały tekst dla tabeli */
+}
+
+/* Zmienia tło i tekst dla nagłówków tabeli */
+.table thead th {
+  background-color: #555; /* Ciemniejsze tło dla nagłówków */
+  color: #fff; /* Biały tekst */
+}

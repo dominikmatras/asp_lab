@@ -11,4 +11,5 @@ public interface IPhotoService
     List<Photo>? FindAll();
     List<OrganizationEntity> FindAllOrganizationsForVieModel();
     List<AuthorEntity> FindAllAuthorsForVieModel();
+    List<CameraEntity> FindAllCamerasForVieModel();
 }

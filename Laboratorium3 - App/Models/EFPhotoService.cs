@@ -34,6 +34,7 @@ public class EfPhotoService : IPhotoService
     if ( find != null)
     {
       _context.Photos.Remove(find);
+      _context.SaveChanges();
     }
   }
 
@@ -42,6 +43,7 @@ public class EfPhotoService : IPhotoService
     var photoEntity = _context.Photos
       .Include(p => p.Organization)
       .Include(p => p.Author)
+      .Include(p => p.Camera)
       .FirstOrDefault(p => p.Id == Id);
 
     if (photoEntity == null) return null;
@@ -52,7 +54,8 @@ public class EfPhotoService : IPhotoService
   public List<Photo>? FindAll()
   {
     return _context.Photos
-      .Include(p => p.Author) 
+      .Include(p => p.Author)
+      .Include(p => p.Camera)
       .Select(p => PhotoMapper.FromEntity(p))
       .ToList();
     
@@ -67,5 +70,10 @@ public class EfPhotoService : IPhotoService
   public List<AuthorEntity> FindAllAuthorsForVieModel()
   {
     return _context.Authors.ToList();
+  }
+  
+  public List<CameraEntity> FindAllCamerasForVieModel()
+  {
+    return _context.Cameras.ToList();
   }
 }

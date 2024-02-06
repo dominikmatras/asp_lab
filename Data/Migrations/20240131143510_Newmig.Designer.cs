@@ -3,6 +3,7 @@ using System;
 using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240131143510_Newmig")]
+    partial class Newmig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.15");
@@ -53,42 +56,6 @@ namespace Data.Migrations
                             FirstName = "Jan",
                             LastName = "Kowalski",
                             Pseudonym = "Jan Kowalski"
-                        });
-                });
-
-            modelBuilder.Entity("Data.Entities.CameraEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Model")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Producer")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("SerialNumber")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Camera");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Model = "Canon 5D Mark IV",
-                            Producer = "Canon",
-                            SerialNumber = "SN12445"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Model = "Sony A7 III",
-                            Producer = "Sony",
-                            SerialNumber = "SN12345"
                         });
                 });
 
@@ -144,8 +111,10 @@ namespace Data.Migrations
                     b.Property<int>("AuthorId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CameraId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Camera")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("Created")
                         .HasColumnType("TEXT");
@@ -173,8 +142,6 @@ namespace Data.Migrations
 
                     b.HasIndex("AuthorId");
 
-                    b.HasIndex("CameraId");
-
                     b.HasIndex("OrganizationId");
 
                     b.ToTable("Photos");
@@ -185,9 +152,9 @@ namespace Data.Migrations
                             Id = 1,
                             AspectRatio = "16:9",
                             AuthorId = 1,
-                            CameraId = 1,
+                            Camera = "Aparat 1",
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2024, 2, 6, 19, 41, 52, 733, DateTimeKind.Local).AddTicks(5770),
+                            Date = new DateTime(2024, 1, 31, 15, 35, 9, 525, DateTimeKind.Local).AddTicks(2250),
                             Description = "Opis zdjęcia 1",
                             OrganizationId = 1,
                             Priority = 1,
@@ -198,9 +165,9 @@ namespace Data.Migrations
                             Id = 2,
                             AspectRatio = "16:9",
                             AuthorId = 2,
-                            CameraId = 2,
+                            Camera = "Aparat 2",
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2024, 2, 6, 19, 41, 52, 733, DateTimeKind.Local).AddTicks(5830),
+                            Date = new DateTime(2024, 1, 31, 15, 35, 9, 525, DateTimeKind.Local).AddTicks(2300),
                             Description = "Opis zdjęcia 2",
                             OrganizationId = 2,
                             Priority = 2,
@@ -236,15 +203,15 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "12598419-91aa-4837-9691-4b798ffa3efa",
-                            ConcurrencyStamp = "12598419-91aa-4837-9691-4b798ffa3efa",
+                            Id = "e1b214a7-b51e-4d52-a024-d5972163b9a5",
+                            ConcurrencyStamp = "e1b214a7-b51e-4d52-a024-d5972163b9a5",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "d67bbb2f-2320-4f0c-96f0-fcd7a0504873",
-                            ConcurrencyStamp = "d67bbb2f-2320-4f0c-96f0-fcd7a0504873",
+                            Id = "183b979d-5232-4f45-93aa-aeb5ef0e4f3a",
+                            ConcurrencyStamp = "183b979d-5232-4f45-93aa-aeb5ef0e4f3a",
                             Name = "user",
                             NormalizedName = "USER"
                         });
@@ -339,31 +306,31 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c688e267-c8e7-43e1-a699-be38da8db588",
+                            Id = "9fd88ade-40db-43ec-9dd7-23398daf09af",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "79690021-0308-4fa7-8ec8-a38eb4afdd42",
+                            ConcurrencyStamp = "af86ea98-7783-433b-9357-c9a5eb9766e8",
                             Email = "admin@wsei.edu.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDXEoEWJ1FC5gQgyo+fw/qJZt9k7SPJC1r1n9nqwQDyfpB8OJDgs9HZGvftxC8mDZQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOlmW5rHPpvUs3RBIC6AHNUToscUt4/NHzDHNYCgMJA0//S427smPBlkrBnt9mvb0A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9a06e7e4-e6f2-400d-b5e1-6447cd41b208",
+                            SecurityStamp = "9b74f655-9d20-4a15-a88c-2c70d6941f0b",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
                         new
                         {
-                            Id = "35e2feef-d14d-456e-bea7-b3906582a172",
+                            Id = "65654a02-27d8-4848-9d8b-cde31ed62cb3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ac40f4c5-42bc-4a4e-b93b-b84a062f7bde",
+                            ConcurrencyStamp = "99037b93-27ab-4f65-bba5-efb38e0c94b3",
                             Email = "user@wsei.edu.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEA5rAH7kkj6qMDJibG8125uAA6y4I2q8ptP3Flkgiu+FtW0bV4yR+TO8NSI+cxUIQQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAfD2MwkUTN470SY4M83737kXsms0WUB6KdH/HwZSzldWJq/5aigjwFeH+9BWHbpgQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cf379044-4b0c-455d-92c7-e8bb407da108",
+                            SecurityStamp = "a2c1993b-ab4e-44f5-bdf3-b9aaa2f32c3f",
                             TwoFactorEnabled = false,
                             UserName = "user"
                         });
@@ -431,13 +398,13 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "c688e267-c8e7-43e1-a699-be38da8db588",
-                            RoleId = "12598419-91aa-4837-9691-4b798ffa3efa"
+                            UserId = "9fd88ade-40db-43ec-9dd7-23398daf09af",
+                            RoleId = "e1b214a7-b51e-4d52-a024-d5972163b9a5"
                         },
                         new
                         {
-                            UserId = "35e2feef-d14d-456e-bea7-b3906582a172",
-                            RoleId = "d67bbb2f-2320-4f0c-96f0-fcd7a0504873"
+                            UserId = "65654a02-27d8-4848-9d8b-cde31ed62cb3",
+                            RoleId = "183b979d-5232-4f45-93aa-aeb5ef0e4f3a"
                         });
                 });
 
@@ -520,12 +487,6 @@ namespace Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Data.Entities.CameraEntity", "Camera")
-                        .WithMany("Photos")
-                        .HasForeignKey("CameraId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Data.Entities.OrganizationEntity", "Organization")
                         .WithMany("Photos")
                         .HasForeignKey("OrganizationId")
@@ -533,8 +494,6 @@ namespace Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Author");
-
-                    b.Navigation("Camera");
 
                     b.Navigation("Organization");
                 });
@@ -591,11 +550,6 @@ namespace Data.Migrations
                 });
 
             modelBuilder.Entity("Data.Entities.AuthorEntity", b =>
-                {
-                    b.Navigation("Photos");
-                });
-
-            modelBuilder.Entity("Data.Entities.CameraEntity", b =>
                 {
                     b.Navigation("Photos");
                 });

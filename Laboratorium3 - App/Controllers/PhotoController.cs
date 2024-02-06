@@ -34,6 +34,12 @@ public class PhotoController : Controller
             .FindAllAuthorsForVieModel()
             .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Pseudonym })
             .ToList();
+
+        model.Cameras = _photoService
+            .FindAllCamerasForVieModel()
+            .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Model })
+            .ToList();
+            
         return View(model);
     }
     
@@ -66,6 +72,11 @@ public class PhotoController : Controller
             .FindAllAuthorsForVieModel()
             .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Pseudonym })
             .ToList();
+        
+        model.Cameras = _photoService
+            .FindAllCamerasForVieModel()
+            .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Model })
+            .ToList();
             
         return View(model);
     }
@@ -95,6 +106,11 @@ public class PhotoController : Controller
             .FindAllAuthorsForVieModel()
             .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Pseudonym })
             .ToList();
+
+        model.Cameras = _photoService
+            .FindAllCamerasForVieModel()
+            .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Model })
+            .ToList();
         
         return View(model);
     }
@@ -116,6 +132,11 @@ public class PhotoController : Controller
         model.Authors = _photoService
             .FindAllAuthorsForVieModel()
             .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Pseudonym })
+            .ToList();
+        
+        model.Cameras = _photoService
+            .FindAllCamerasForVieModel()
+            .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Model })
             .ToList();
         
         return View(model);

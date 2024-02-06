@@ -53,4 +53,9 @@ public class MemoryPhotoService : IPhotoService
     {
         throw new NotImplementedException();
     }
+    
+    public List<CameraEntity> FindAllCamerasForVieModel()
+    {
+        throw new NotImplementedException();
+    }
 }

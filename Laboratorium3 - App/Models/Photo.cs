@@ -26,7 +26,13 @@ public class Photo
     
     [Required(ErrorMessage = "Musisz podać nazwę aparatu!")]
     [Display(Name = "Aparat")]
-    public string Camera { get; set; }
+    public int CameraId { get; set; }
+    [Required(ErrorMessage = "Musisz podać nazwę aparatu!")]
+    [Display(Name = "Aparat")]
+    public string? CameraName { get; set;}
+    [Required(ErrorMessage = "Musisz podać nazwę aparatu!")]
+    [Display(Name = "Aparat")]
+    public List<SelectListItem> Cameras { get; set; }
     
     [Required(ErrorMessage = "Musisz podać autora zdjęcia!")]
     [Display(Name = "Autor")]
