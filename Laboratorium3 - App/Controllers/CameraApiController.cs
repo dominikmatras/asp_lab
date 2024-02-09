@@ -15,8 +15,17 @@ public class CameraApiController : ControllerBase
   }
   
   [HttpGet]
-  public IActionResult GetCameras()
+  public IActionResult GetAllCameras()
   {
     return Ok(_context.Cameras.ToList());
+  }
+  
+  [HttpGet("filter")] 
+  public IActionResult GetFiltered(string filter)
+  {
+    return Ok(_context.Cameras
+      .Where(a => a.Model.StartsWith(filter))
+      .Select(a => new {a.Id, a.Model})
+      .ToList());
   }
 }

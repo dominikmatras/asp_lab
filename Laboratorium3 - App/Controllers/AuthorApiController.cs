@@ -25,7 +25,7 @@ public class AuthorApiController : ControllerBase
   {
     return Ok(_context.Authors
       .Where(a => a.FirstName.StartsWith(filter))
-      .Select(a => new {a.Id, a.FirstName, a.LastName, a.Pseudonym})
+      .Select(a => new {a.Id, a.Pseudonym})
       .ToList());
   }
 }

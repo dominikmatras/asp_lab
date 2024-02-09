@@ -42,7 +42,6 @@ public class PhotoController : Controller
     [HttpPost]
     public IActionResult Create(Photo model)
     {
-        
         model.Authors = _photoService
             .FindAllAuthorsForVieModel()
             .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Pseudonym })
@@ -53,11 +52,13 @@ public class PhotoController : Controller
             .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Model })
             .ToList();
         
+        ModelState.Remove("Cameras");
         if (ModelState.IsValid)
         {
             _photoService.Add(model);
             return RedirectToAction("Index");
         }
+        
         return View(model);
     }
     [HttpGet]
@@ -73,7 +74,7 @@ public class PhotoController : Controller
             .FindAllCamerasForVieModel()
             .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Model })
             .ToList();
-            
+        
         return View(model);
     }
     
@@ -81,11 +82,22 @@ public class PhotoController : Controller
     [ValidateAntiForgeryToken]
     public ActionResult CreateApi(Photo p)
     {
+        p.Authors = _photoService
+            .FindAllAuthorsForVieModel()
+            .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Pseudonym })
+            .ToList();
+        
+        p.Cameras = _photoService
+            .FindAllCamerasForVieModel()
+            .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Model })
+            .ToList();
+        
         if (ModelState.IsValid)
         {
             _photoService.Add(p);
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index");
         }
+        
         return View();
     }
 

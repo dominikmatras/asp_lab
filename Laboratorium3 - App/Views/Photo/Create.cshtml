@@ -18,7 +18,7 @@
     <span class="text-danger" asp-validation-for="Description"></span><br>
     
     <label asp-for="Cameras"></label>
-    <select class="form-control" asp-for="CameraId" asp-items="@Model.Cameras"></select><br/>
+    <select asp-for="CameraId" asp-items="Model.Cameras" class="form-control"></select>
     
     <label asp-for="Authors"></label>
     <select class="form-control" asp-for="AuthorId" asp-items="@Model.Authors"></select><br/>

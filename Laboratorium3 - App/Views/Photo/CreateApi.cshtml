@@ -7,7 +7,7 @@
 
 <h3>Dodaj zdjęcie:</h3>
 <br><br><br>
-<form asp-controller="Photo" asp-action="Create" method="post">
+<form asp-controller="Photo" asp-action="CreateApi" method="post">
     
     <label asp-for="Date"></label>
     <input class="form-control" type="datetime-local" asp-for="Date" />
@@ -17,12 +17,19 @@
     <textarea asp-for="Description" class="form-control" rows="4"></textarea>
     <span class="text-danger" asp-validation-for="Description"></span><br>
     
-    <label asp-for="Cameras"></label>
-    <select class="form-control" asp-for="CameraId" asp-items="@Model.Cameras"></select><br/>
-    <span class="text-danger" asp-validation-for="CameraId"></span><br>
+    <div class="form-group">
+        <label for="filter_camera"><b>Filtr aparatu</b></label>
+        <input class="form-control mb-3" type="text" name="filter_camera" id="filter_camera"/>
+        <label asp-for="CameraId"></label>
+        <select class="form-control mb-3" asp-for="CameraId" id="CameraId"></select>
+    </div>
     
-    <label asp-for="Authors" class="fw-bold"></label>
-    <select class="form-control" asp-for="AuthorId" asp-items="@Model.Authors"></select><br/>
+    <div class="form-group">
+        <label for="filter_author"><b>Filtr autora</b></label>
+        <input class="form-control mb-3" type="text" name="filter_author" id="filter_author"/>
+        <label asp-for="AuthorId"></label>
+        <select class="form-control mb-3" asp-for="AuthorId" id="AuthorId"></select>
+    </div>
     
     <label asp-for="Resolution"></label>
     <input class="form-control" asp-for="Resolution" />
@@ -35,46 +42,66 @@
     <label asp-for="Priority"></label>
     <select asp-for="Priority" asp-items="@Html.GetEnumSelectList<Priority>()" class="form-control"></select>
     <span asp-validation-for="Priority" class="text-danger"></span><br/>
-    
-    @* <div class="form-group"> *@
-    @*     <label for="filter">Filtr organizacji</label> *@
-    @*     <input class="form-control mb-3" type="text" name="filter" id="filter"/> *@
-    @*     <label asp-for="OrganizationId"></label> *@
-    @*     <select class="form-control mb-3" asp-for="OrganizationId"></select> *@
-    @* </div> *@
+
     <br>
     
-    <input type="submit" value="Dodaj nowe zdjęcie!" />
+    <input class="btn btn-primary" type="submit" value="Dodaj nowe zdjęcie!" />
 </form>
 
 @section Scripts
 {
     <script>
-        let select = document.querySelector('#OrganizationId')
-        let filter = document.querySelector('#filter')
+        let select_camera = document.querySelector('#CameraId')
+        let filter_camera = document.querySelector('#filter_camera')
+        let select_author = document.querySelector('#AuthorId')
+        let filter_author = document.querySelector('#filter_author')
         
-        filter.onchange = function(e) {
-            if (filter.value.lenght == 0) {
+        filter_camera.onchange = function(e) {
+            if (filter_camera.value.lenght == 0) {
                 return;
             }
-        
-        fetch(`/api/organizations?filter=${filter.value}`)
-            .then(response => {
-                if (response.ok) {
-                    return response.json()
-                }
-                    throw `it's not ok: ${response.status}`
+            
+            fetch(`/api/cameras/filter?filter=${filter_camera.value}`)
+                .then(response => {
+                    if (response.ok) {
+                        return response.json()
+                    }
+                        throw `it's not ok: ${response.status}`
+                    })
+                .then(json => {
+                    select_camera.innerHTML = ''
+                    for (let item of json) {
+                        let option = document.createElement('option');
+                        option.setAttribute('value', item.id);
+                        option.innerText = item.model;
+                        select_camera.appendChild(option);
+                    }
                 })
-            .then(json => {
-                select.innerHTML = ''
-                for (let item of json) {
-                    let option = document.createElement('option');
-                    option.setAttribute('value', item.id);
-                    option.innerText = item.title;
-                    select.appendChild(option);
-                }
-            })
-            .catch(e => console.log('cant fetch organizations', e))
+                .catch(e => console.log('cant fetch organizations', e))
         }
+        
+        filter_author.onchange = function(e) {
+            if (filter_author.value.lenght == 0) {
+                return;
+            }
+            
+            fetch(`/api/authors/filter?filter=${filter_author.value}`)
+                .then(response => {
+                    if (response.ok) {
+                        return response.json()
+                    }
+                        throw `it's not ok: ${response.status}`
+                    })
+                .then(json => {
+                    select_author.innerHTML = ''
+                    for (let item of json) {
+                        let option = document.createElement('option');
+                        option.setAttribute('value', item.id);
+                        option.innerText = item.pseudonym;
+                        select_author.appendChild(option);
+                    }
+                })
+                .catch(e => console.log('cant fetch authors', e))
+        }      
     </script>
 }
