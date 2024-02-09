@@ -19,8 +19,6 @@ public class PhotoMapper
       Resolution = entity.Resolution, 
       AspectRatio = entity.AspectRatio,
       Priority = entity.Priority,
-      OrganizationId = entity.OrganizationId,
-      OrganizationName = entity.Organization?.Title
     };
   }
 
@@ -36,7 +34,6 @@ public class PhotoMapper
       Resolution = model.Resolution, 
       AspectRatio = model.AspectRatio, 
       Priority = model.Priority,
-      OrganizationId = model.OrganizationId
     };
   }
 }

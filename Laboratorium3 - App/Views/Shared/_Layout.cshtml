@@ -7,24 +7,24 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/Laboratorium3___App.styles.css" asp-append-version="true"/>
+    <script src="https://kit.fontawesome.com/27df9314aa.js" crossorigin="anonymous"></script>
 </head>
 <body data-bs-theme="dark">
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PhotosApp</a>
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><i class="fa-solid fa-camera"></i> PhotosApp</a>
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Strona domowa</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Photo" asp-action="Index">Biblioteka zdjęć</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Prywatność</a>
-                    </li> 
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Photo" asp-action="Index">Biblioteka zdjęć</a>
                     </li>
-                    <partial name="_LoginPartial" />
+                </ul>
+                <ul class="navbar-nav">
+                    <partial class="" name="_LoginPartial" />
                 </ul>
             </div>
         </div>
@@ -36,9 +36,9 @@
     </main>
 </div>
 
-<footer class="footer text-muted ">
+<footer class="footer text-muted fixed-bottom pb-3 pt-3 box-shadow" style="background-color: #fff; ">
     <div class="container">
-        &copy; 2023 - PhotoApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Prywatność</a>
+       Dominik Matras &copy; 2024 - PhotoApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Prywatność</a>
     </div>
 </footer>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>

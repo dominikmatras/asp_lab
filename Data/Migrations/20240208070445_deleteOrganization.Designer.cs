@@ -3,6 +3,7 @@ using System;
 using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240208070445_deleteOrganization")]
+    partial class deleteOrganization
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.15");
@@ -144,7 +147,7 @@ namespace Data.Migrations
                             AuthorId = 1,
                             CameraId = 1,
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2024, 2, 8, 8, 23, 11, 79, DateTimeKind.Local).AddTicks(9750),
+                            Date = new DateTime(2024, 2, 8, 8, 4, 45, 26, DateTimeKind.Local).AddTicks(3700),
                             Description = "Opis zdjęcia 1",
                             Priority = 1,
                             Resolution = "1920x1080"
@@ -156,7 +159,7 @@ namespace Data.Migrations
                             AuthorId = 2,
                             CameraId = 2,
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2024, 2, 8, 8, 23, 11, 79, DateTimeKind.Local).AddTicks(9810),
+                            Date = new DateTime(2024, 2, 8, 8, 4, 45, 26, DateTimeKind.Local).AddTicks(3740),
                             Description = "Opis zdjęcia 2",
                             Priority = 2,
                             Resolution = "1920x1080"
@@ -191,15 +194,15 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ddcf063a-86d4-437c-b2fb-a1d3b5f5774a",
-                            ConcurrencyStamp = "ddcf063a-86d4-437c-b2fb-a1d3b5f5774a",
+                            Id = "fe5df133-8e19-495a-a562-0abf2427a3e7",
+                            ConcurrencyStamp = "fe5df133-8e19-495a-a562-0abf2427a3e7",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "44f596ac-c036-4b91-b84a-112e500a82f3",
-                            ConcurrencyStamp = "44f596ac-c036-4b91-b84a-112e500a82f3",
+                            Id = "bf31be23-5540-4017-9ab9-6b734688e741",
+                            ConcurrencyStamp = "bf31be23-5540-4017-9ab9-6b734688e741",
                             Name = "user",
                             NormalizedName = "USER"
                         });
@@ -294,31 +297,31 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c80604e9-e3ed-48f9-b420-bae7de7c54c1",
+                            Id = "cffdc186-3779-4f71-bd7b-a7c89671929b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "88a864b3-2195-47a3-aef8-1633335ba81f",
+                            ConcurrencyStamp = "129c5c4f-c66c-4d05-bafb-fed144ad61bf",
                             Email = "admin@wsei.edu.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEL7GF4DZ3dMgHniYPs8f+YWO/n/MnoxcGDzKAVC7BRWjsnYQbDnF8o8gfeDrJ4tGCQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJMc08MOibnD9sH2oqZTg6CGuPaDwSRIQ6VWtVpgm6GmIvarE7VlrBJrIuDNPkkVkQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "51e2ac30-1a3e-4dce-a87b-2f4778100454",
+                            SecurityStamp = "acc5a413-d746-4e87-84eb-a731351e22a0",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
                         new
                         {
-                            Id = "8b519424-1f2e-4427-a447-750557a1132a",
+                            Id = "37023c87-f1c9-412d-b9f6-bdcaa7b58b99",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "efb68d22-54af-43dc-a697-79a0b0e36718",
+                            ConcurrencyStamp = "c04f8b99-86a1-4dca-9d95-3ed560562c15",
                             Email = "user@wsei.edu.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEO/3YKR46NzNflJjRgqPc4XyXufRpq6b+yrtl6PeSV5HR9vlQKWwSvooJ7KX91r2Ug==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEILoCwyQ1WQ2I+xB3zBnTtFghpWnHMQ3Oao3F4Mv6MX3g0ZlTaARaWVAiP6ixypwPQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "15c15ba1-3651-41c4-9bd0-7f06a07a2dc0",
+                            SecurityStamp = "ad5dba70-328d-4ab5-81ef-ce8c6fb4642d",
                             TwoFactorEnabled = false,
                             UserName = "user"
                         });
@@ -386,13 +389,13 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "c80604e9-e3ed-48f9-b420-bae7de7c54c1",
-                            RoleId = "ddcf063a-86d4-437c-b2fb-a1d3b5f5774a"
+                            UserId = "cffdc186-3779-4f71-bd7b-a7c89671929b",
+                            RoleId = "fe5df133-8e19-495a-a562-0abf2427a3e7"
                         },
                         new
                         {
-                            UserId = "8b519424-1f2e-4427-a447-750557a1132a",
-                            RoleId = "44f596ac-c036-4b91-b84a-112e500a82f3"
+                            UserId = "37023c87-f1c9-412d-b9f6-bdcaa7b58b99",
+                            RoleId = "bf31be23-5540-4017-9ab9-6b734688e741"
                         });
                 });
 

@@ -25,10 +25,6 @@ public class PhotoController : Controller
     public IActionResult Create()
     {
         Photo model = new Photo();
-        model.Organizations =  _photoService
-            .FindAllOrganizationsForVieModel()
-            .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Title })
-            .ToList();
         
         model.Authors = _photoService
             .FindAllAuthorsForVieModel()
@@ -47,14 +43,14 @@ public class PhotoController : Controller
     public IActionResult Create(Photo model)
     {
         
-        model.Organizations =  _photoService
-            .FindAllOrganizationsForVieModel()
-            .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Title })
-            .ToList();
-        
         model.Authors = _photoService
             .FindAllAuthorsForVieModel()
             .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Pseudonym })
+            .ToList();
+        
+        model.Cameras = _photoService
+            .FindAllCamerasForVieModel()
+            .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Model })
             .ToList();
         
         if (ModelState.IsValid)
@@ -97,10 +93,6 @@ public class PhotoController : Controller
     public IActionResult Edit(int Id)
     {
         Photo model = _photoService.FindById(Id);
-        model.Organizations = _photoService
-            .FindAllOrganizationsForVieModel()
-            .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Title })
-            .ToList();
 
         model.Authors = _photoService
             .FindAllAuthorsForVieModel()
@@ -123,11 +115,6 @@ public class PhotoController : Controller
             _photoService.Update(model);
             return RedirectToAction("Index");
         }
-        
-        model.Organizations = _photoService
-            .FindAllOrganizationsForVieModel()
-            .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Title })
-            .ToList();
         
         model.Authors = _photoService
             .FindAllAuthorsForVieModel()

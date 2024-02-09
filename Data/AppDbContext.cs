@@ -7,11 +7,8 @@ namespace Data;
 
 public class AppDbContext : IdentityDbContext<IdentityUser>
 {
-  public DbSet<PhotoEntity> Photos { get; set; } 
-  public DbSet<OrganizationEntity> Organizations { get; set; }
-  
+  public DbSet<PhotoEntity> Photos { get; set; }
   public DbSet<CameraEntity> Cameras { get; set; }
-  
   public DbSet<AuthorEntity> Authors { get; set; }
   private string DbPath { get; set; }
 
@@ -28,55 +25,15 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
-    modelBuilder.Entity<OrganizationEntity>()
-      .OwnsOne(e => e.Address);
-    
-    modelBuilder.Entity<PhotoEntity>()
-      .HasOne(e => e.Organization)
-      .WithMany(o => o.Photos)
-      .HasForeignKey(e => e.OrganizationId);
-
     modelBuilder.Entity<PhotoEntity>()
       .HasOne(e => e.Author)
       .WithMany(o => o.Photos)
       .HasForeignKey(e => e.AuthorId);
     
-    modelBuilder.Entity<OrganizationEntity>()
-      .HasData(
-        new OrganizationEntity()
-        {
-          Id = 1,
-          Title = "WSEI",
-          Nip = "83492384",
-          Regon = "13424234",
-        },
-        new OrganizationEntity()
-        {
-          Id = 2,
-          Title = "Firma",
-          Nip = "2498534",
-          Regon = "0873439249",
-        });
-    
     modelBuilder.Entity<PhotoEntity>()
-      .HasData(
-      new PhotoEntity()
-      {
-        Id = 1, Date = DateTime.Now, Description = "Opis zdjęcia 1", CameraId = 1, AuthorId = 1,
-        Resolution = "1920x1080", AspectRatio = "16:9", Priority = 1, OrganizationId = 1
-      },
-      new PhotoEntity()
-      {
-        Id = 2, Date = DateTime.Now, Description = "Opis zdjęcia 2", CameraId = 2, AuthorId = 2,
-        Resolution = "1920x1080", AspectRatio = "16:9", Priority = 2, OrganizationId = 2
-      });
-
-    modelBuilder.Entity<OrganizationEntity>()
-      .OwnsOne(e => e.Address)
-      .HasData(
-        new { OrganizationEntityId = 1, City = "Kraków", Street = "Św. Filipa 17", PostalCode = "31-150", Region = "małopolskie" },
-        new { OrganizationEntityId = 2, City = "Kraków", Street = "Krowoderska 45/6", PostalCode = "31-150", Region = "małopolskie" }
-      );
+      .HasOne(e => e.Camera)
+      .WithMany(o => o.Photos)
+      .HasForeignKey(e => e.CameraId);
     
     modelBuilder.Entity<AuthorEntity>()
       .HasData(
@@ -111,6 +68,19 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
           Producer = "Sony",
           SerialNumber = "SN12345"
         });
+    
+    modelBuilder.Entity<PhotoEntity>()
+      .HasData(
+      new PhotoEntity()
+      {
+        Id = 1, Date = DateTime.Now, Description = "Opis zdjęcia 1", CameraId = 1, AuthorId = 1,
+        Resolution = "1920x1080", AspectRatio = "16:9", Priority = 1
+      },
+      new PhotoEntity()
+      {
+        Id = 2, Date = DateTime.Now, Description = "Opis zdjęcia 2", CameraId = 2, AuthorId = 2,
+        Resolution = "1920x1080", AspectRatio = "16:9", Priority = 2
+      });
     
     base.OnModelCreating(modelBuilder);
     

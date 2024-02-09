@@ -9,7 +9,6 @@ public interface IPhotoService
     void DeleteById(int Id);
     Photo? FindById(int Id);
     List<Photo>? FindAll();
-    List<OrganizationEntity> FindAllOrganizationsForVieModel();
     List<AuthorEntity> FindAllAuthorsForVieModel();
     List<CameraEntity> FindAllCamerasForVieModel();
 }

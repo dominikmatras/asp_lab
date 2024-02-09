@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace Laboratorium3___App.Models;
 
-static public class EnumExtensions
+public static class EnumExtensions
 {
     public static string GetDisplayName(this Enum enumValue)
     {

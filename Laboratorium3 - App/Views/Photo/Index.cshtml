@@ -1,6 +1,7 @@
 @model List<Photo>
-
+@using Laboratorium3___App.Models
 @{
+    
 }
 
 <h1>Lista zdjęć</h1>
@@ -8,7 +9,7 @@
 <a class="btn btn-primary mt-3" asp-controller="Photo" asp-action="Create">Dodaj zdjęcie</a>
 <a class="btn btn-primary mt-3" asp-controller="Photo" asp-action="CreateApi">Dodaj zdjęcie (z API)</a>
 </div>
-<table class="table mt-4" data-bs-theme="dark">
+<table class="table mt-4">
     <thead>
     <tr>
         <th>@Html.DisplayNameFor(model => model[0].AuthorPseudonym)</th>
@@ -23,7 +24,7 @@
         <tr>
             <td>@photo.AuthorPseudonym</td>
             <td>@photo.CameraName</td>
-            <td>@photo.Priority</td>
+            <td>@(((Priority)photo.Priority).GetDisplayName())</td>
             <td>
                 <a asp-action="Edit" asp-route-id=@photo.Id>Edit</a>
                 <a asp-action="Details" asp-route-id=@photo.Id>Details</a>

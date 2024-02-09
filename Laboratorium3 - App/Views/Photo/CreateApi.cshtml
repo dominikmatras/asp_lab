@@ -36,12 +36,12 @@
     <select asp-for="Priority" asp-items="@Html.GetEnumSelectList<Priority>()" class="form-control"></select>
     <span asp-validation-for="Priority" class="text-danger"></span><br/>
     
-    <div class="form-group">
-        <label for="filter">Filtr organizacji</label>
-        <input class="form-control mb-3" type="text" name="filter" id="filter"/>
-        <label asp-for="OrganizationId"></label>
-        <select class="form-control mb-3" asp-for="OrganizationId"></select>
-    </div>
+    @* <div class="form-group"> *@
+    @*     <label for="filter">Filtr organizacji</label> *@
+    @*     <input class="form-control mb-3" type="text" name="filter" id="filter"/> *@
+    @*     <label asp-for="OrganizationId"></label> *@
+    @*     <select class="form-control mb-3" asp-for="OrganizationId"></select> *@
+    @* </div> *@
     <br>
     
     <input type="submit" value="Dodaj nowe zdjęcie!" />

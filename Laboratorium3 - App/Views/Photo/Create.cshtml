@@ -35,10 +35,6 @@
     <select asp-for="Priority" asp-items="@Html.GetEnumSelectList<Priority>()" class="form-control"></select>
     <span asp-validation-for="Priority" class="text-danger"></span><br/>
     
-    <label asp-for="Organizations"></label>
-    <select class="form-control" asp-for="OrganizationId" asp-items="@Model.Organizations"></select>
-    
-    
     <br>
     
     <input type="submit" value="Dodaj nowe zdjęcie!" />

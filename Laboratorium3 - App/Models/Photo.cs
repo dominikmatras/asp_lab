@@ -55,13 +55,4 @@ public class Photo
     [Display(Name = "Priorytet")]
     public int Priority { get; set; }
     
-    [HiddenInput]
-    public int OrganizationId { get; set; }
-    
-    [Display(Name = "Organizacja")]
-    [ValidateNever]
-    public List<SelectListItem> Organizations { get; set; }
-    
-    [Display(Name = "Organizacja")]
-    public string? OrganizationName { get; set; }
 }

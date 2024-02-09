@@ -5,7 +5,6 @@ namespace Laboratorium3___App.Models;
 public class MemoryPhotoService : IPhotoService
 {
     private readonly Dictionary<int, Photo> _photos = new Dictionary<int, Photo>();
-    private readonly Dictionary<int, OrganizationEntity> _context = new Dictionary<int, OrganizationEntity>();
     
     private readonly IDateTimeProvider _timeProvider;
     
@@ -42,11 +41,6 @@ public class MemoryPhotoService : IPhotoService
     public List<Photo>? FindAll()
     {
         return _photos.Values.ToList();
-    }
-
-    public List<OrganizationEntity> FindAllOrganizationsForVieModel()
-    {
-        throw new NotImplementedException();
     }
     
     public List<AuthorEntity> FindAllAuthorsForVieModel()

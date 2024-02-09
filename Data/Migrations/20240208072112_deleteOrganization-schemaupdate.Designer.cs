@@ -3,6 +3,7 @@ using System;
 using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240208072112_deleteOrganization-schemaupdate")]
+    partial class deleteOrganizationschemaupdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.15");
@@ -38,22 +41,6 @@ namespace Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Author");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            FirstName = "Dominik",
-                            LastName = "Matras",
-                            Pseudonym = "Dominik Matras"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            FirstName = "Jan",
-                            LastName = "Kowalski",
-                            Pseudonym = "Jan Kowalski"
-                        });
                 });
 
             modelBuilder.Entity("Data.Entities.CameraEntity", b =>
@@ -74,22 +61,6 @@ namespace Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Camera");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Model = "Canon 5D Mark IV",
-                            Producer = "Canon",
-                            SerialNumber = "SN12445"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Model = "Sony A7 III",
-                            Producer = "Sony",
-                            SerialNumber = "SN12345"
-                        });
                 });
 
             modelBuilder.Entity("Data.Entities.PhotoEntity", b =>
@@ -135,32 +106,6 @@ namespace Data.Migrations
                     b.HasIndex("CameraId");
 
                     b.ToTable("Photos");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AspectRatio = "16:9",
-                            AuthorId = 1,
-                            CameraId = 1,
-                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2024, 2, 8, 8, 23, 11, 79, DateTimeKind.Local).AddTicks(9750),
-                            Description = "Opis zdjęcia 1",
-                            Priority = 1,
-                            Resolution = "1920x1080"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AspectRatio = "16:9",
-                            AuthorId = 2,
-                            CameraId = 2,
-                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2024, 2, 8, 8, 23, 11, 79, DateTimeKind.Local).AddTicks(9810),
-                            Description = "Opis zdjęcia 2",
-                            Priority = 2,
-                            Resolution = "1920x1080"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -191,15 +136,15 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ddcf063a-86d4-437c-b2fb-a1d3b5f5774a",
-                            ConcurrencyStamp = "ddcf063a-86d4-437c-b2fb-a1d3b5f5774a",
+                            Id = "55977460-23b9-45eb-84ab-ecb9b0ac75bf",
+                            ConcurrencyStamp = "55977460-23b9-45eb-84ab-ecb9b0ac75bf",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "44f596ac-c036-4b91-b84a-112e500a82f3",
-                            ConcurrencyStamp = "44f596ac-c036-4b91-b84a-112e500a82f3",
+                            Id = "dce34d7f-936d-48d5-a5d2-2675b2c07798",
+                            ConcurrencyStamp = "dce34d7f-936d-48d5-a5d2-2675b2c07798",
                             Name = "user",
                             NormalizedName = "USER"
                         });
@@ -294,31 +239,31 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c80604e9-e3ed-48f9-b420-bae7de7c54c1",
+                            Id = "a29a6ddb-ee04-4f4f-9162-8b07ac25e321",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "88a864b3-2195-47a3-aef8-1633335ba81f",
+                            ConcurrencyStamp = "148e91e7-7517-4892-bc2d-b21078cafeba",
                             Email = "admin@wsei.edu.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEL7GF4DZ3dMgHniYPs8f+YWO/n/MnoxcGDzKAVC7BRWjsnYQbDnF8o8gfeDrJ4tGCQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFmY9d1jUxShnK/lqQ+IE08wFqlVLWgm+Wfkz4vTlwqS8uur/XfIhATF3iNT561dng==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "51e2ac30-1a3e-4dce-a87b-2f4778100454",
+                            SecurityStamp = "afa90846-1755-4c2d-9a9f-85de13a20380",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
                         new
                         {
-                            Id = "8b519424-1f2e-4427-a447-750557a1132a",
+                            Id = "7c00ca28-8930-4eed-96b2-7bae24d86e4f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "efb68d22-54af-43dc-a697-79a0b0e36718",
+                            ConcurrencyStamp = "7b34d73f-8da2-474e-99ea-15ff250365d6",
                             Email = "user@wsei.edu.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEO/3YKR46NzNflJjRgqPc4XyXufRpq6b+yrtl6PeSV5HR9vlQKWwSvooJ7KX91r2Ug==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOtPc0SVSvvaFAM862hsh+3DngflE2EFhzXkCO5//qGGB5qBL8nt1ngA3S55yKCZJQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "15c15ba1-3651-41c4-9bd0-7f06a07a2dc0",
+                            SecurityStamp = "213f5c5b-259f-4aeb-956c-fe0e02a34157",
                             TwoFactorEnabled = false,
                             UserName = "user"
                         });
@@ -386,13 +331,13 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "c80604e9-e3ed-48f9-b420-bae7de7c54c1",
-                            RoleId = "ddcf063a-86d4-437c-b2fb-a1d3b5f5774a"
+                            UserId = "a29a6ddb-ee04-4f4f-9162-8b07ac25e321",
+                            RoleId = "55977460-23b9-45eb-84ab-ecb9b0ac75bf"
                         },
                         new
                         {
-                            UserId = "8b519424-1f2e-4427-a447-750557a1132a",
-                            RoleId = "44f596ac-c036-4b91-b84a-112e500a82f3"
+                            UserId = "7c00ca28-8930-4eed-96b2-7bae24d86e4f",
+                            RoleId = "dce34d7f-936d-48d5-a5d2-2675b2c07798"
                         });
                 });
 
